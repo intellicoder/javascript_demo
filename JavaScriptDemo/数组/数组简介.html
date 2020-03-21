@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组简介</title>
+    <script>
+        //复习
+        //JavaScript对象分类
+        //内建对象
+        //宿主对象
+        //自定义对象
+        //之前我们研究的都是自定义对象（日常开发中很少用自定义对象）
+        
+
+        //数组是内建对象
+
+        //数组（Array）
+        //      --数组也是一个对象
+        //      --它和我们普通的对象功能类似，也是用来存储一些值的
+        //      --不同的是普通对象是使用字符串作为属性名的
+        //          而数组是使用数字来作为索引来操作元素（属性）的
+        //      --索引
+        //           从0开始的整数就是索引
+        //      --数组的存储性能比普通的对象好，开发中我们经常用数组来存储一些数据
+
+        //创建数组对象
+        var array = new Array();
+
+        //检查数组类型
+        document.write(typeof array+"<br>");//Object
+
+        //添加元素
+        //语法：数组[索引] = 值
+        array[0] = 10;
+        console.log(array);
+        array[1] = 31;
+        array[2] = 22;
+        document.write(array+"<br>");
+
+        //读取元素
+        document.write(array[2]+"<br>");
+
+        //如果索引不存在，返回undefined
+        document.write(array[4]+"<br>");
+
+        //获取数组长度(元素个数)
+        //可以使用length属性
+        //注意：
+        //对于连续的数组，使用length可以获取数组长度
+        //对于非连续数组，使用length会获取到最大索引加1
+        document.write(array.length+"<br>")//3
+        array[102]=34;
+        document.write(array.length+"<br>")//103
+        //尽量不要和上面一样，创建非连续数组
+
+        //lenght是可以自己修改的（设置）
+        array.length = 3;
+        document.write(array.length+"<br>");//3
+        //如果我们修改的length大于原长度，空出的部分会空出来
+        //如果修改的length小于原长度，则多出的元素会被删除
+
+        //向数组最后一个位置添加元素(小技巧)
+        array[array.length] = 70;
+        array[array.length] = 80;
+        document.write(array+"<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

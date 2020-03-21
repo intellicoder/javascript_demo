@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组字面量</title>
+    <script>
+        //使用字面量的形式创建数组
+        var arr = [];//使用这个方式创建更方便
+        document.write(typeof arr+"<br>");
+
+        //使用字面量创建数组，可以在创建时就指定元素
+        var arr2 = [1,2,3,4,5,6];
+        document.write(arr2+"<br>");
+        document.write(arr2.length+"<br>");
+
+        //其实通过构造函数也可以事先指定元素
+        var arr3 = new Array(1,2,3,4,5);
+        document.write(arr3+"<br>");
+
+        //区别
+        var arr4 = [10]; //这是指数组中只有一个元素10
+        var arr5 =new Array(10);//表示创建一个长度为10的数组
+
+        //数组中的元素可以是任意的数据类型
+        var arr6 = ["hello",1,true,null,undefined];
+        document.write(arr6+"<br>");
+        //也可以是对象
+        var obj = {
+            name : "zhuzhi",
+            toString : function(){
+                return "I am "+this.name;
+            }
+        };
+        arr6[arr6.length] = obj;
+        document.write(arr6+"<br>");
+        //也可以是函数
+        arr6[arr6.length] = function(){
+            alert("zhuzhi");
+        }
+        document.write(arr6+"<br>");
+        //调用这个函数
+        arr6[6]();//调用成功
+
+        //多维数组
+        var arr7 = [[1,2,3],[4,5,6],[7,8,9]];
+        document.write(arr7+"<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

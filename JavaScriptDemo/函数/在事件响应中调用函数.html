@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>在事件响应中调用函数</title>
+        <meta charset="UTF-8">
+        <script>
+            function test(){
+                alert("test");
+            }
+
+        </script>
+    </head>
+    <body>
+        <form action="" method="post" name="form1"></form>
+        <input type="button" value="提交" onclick="test();">
+        <!--在按钮事件触发时调用自定义函数-->
+    </body>
+</html>

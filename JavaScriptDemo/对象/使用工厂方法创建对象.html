@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用工厂方法创建对象</title>
+    <script>
+        var obj = {
+            name: "孙悟空",
+            gender: "男",
+            sayName: function () {
+                alert(this.name);
+            }
+        };
+
+        obj.sayName();
+
+        var obj1 = {
+            name: "沙和尚",
+            gender: "男",
+            sayName: function () {
+                alert(this.name);
+            }
+        };
+
+        var obj2 = {
+            name: "唐僧",
+            gender: "男",
+            sayName: function () {
+                alert(this.name);
+            }
+        };
+
+        /*大规模生产对象时（创建的对象有大量重复的对象），可以使用工厂方法生产对象*/
+
+        /*使用工厂方式生产对象*/
+        /*通过该方法可以大批量生产对象*/
+        function createPerson(name) {
+            var obj = new Object();
+            obj.name = name;
+            obj.age = 18;
+            obj.sayName = function () {
+                alert(this.name);
+            }
+
+            //将新对象返回
+
+            return obj;
+        }
+
+        //本质就是C++中的构造函数
+        createPerson("zhuzhi").sayName();
+        createPerson("zzinix").sayName();
+        createPerson("zhuzhimlm").sayName();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

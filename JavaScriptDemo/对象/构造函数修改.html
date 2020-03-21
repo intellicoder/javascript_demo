@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数修改</title>
+    <script>
+        //创建person构造函数
+        //在person构造方法中，每一个都添加了一个sayName方法
+        //目前，我们的方法是在构造函数内部创建的，
+        //也就是构造函数每执行一次都会创建一个新的sayName方法
+        //也就是所有的实例sayName方法都是唯一的
+        //这就导致了构造函数执行一次就会创建一个新的方法
+        //执行10000次就会创建10000次方法，而一万个方法都是一摸一样的
+        //这是完全没有必要的
+        //完全可以使所有的实例共用一个方法
+        function person(name,age,gender){
+            this.name=name;
+            this.age=age;
+            this.gender=gender;
+
+            //向对象中添加一个方法
+            this.sayName=function(){
+                alert(this.name);
+            }
+        }
+
+        //创建person实例
+        var per = new person("zhuzhi",20,"男");
+        per.sayName();
+
+        var per2 = new person("zz","12","男");
+        per2.sayName();
+
+        console.log(per.sayName==per2.sayName);
+
+        //将sayName方法在全局作用域定义,提升运行效率，性能 
+        function fun(){
+            alert(this.name);
+        }
+
+        function person2(name,age,gender){
+            this.name=name;
+            this.gender=gender;
+            this.age=age;
+            this.sayName=fun;
+        }
+
+        var per3 = new person2("zz01",1,"男");
+        var per4 = new person2("zz02",2,"男");
+
+        per3.sayName();
+        per4.sayName();
+        console.log(per3.sayName==per4.sayName);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
