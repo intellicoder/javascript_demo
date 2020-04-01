@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串的相关方法</title>
+    <script>
+        //创建一个字符串
+        var str = "zhuzhi";
+
+        /* 
+            在底层字符串是以字符数组的形式存储的
+            ["z","h","u","z","h","i"]
+         */
+
+        //和数组一样的方法，length可以获取字符串的长度
+        //通过索引可以访问单个字符
+         console.log(str.length);//6
+         console.log(str[2]);//u
+
+         /* 
+            charAt()
+                --可以返回字符串指定位置的字符
+                --根据索引获取指定字符，不会改变原数组
+                --和索引的效果是一样的
+          */
+          str = "Hello Atguigu";
+          var result = str.charAt(0);
+          console.log(result);//H
+
+          /* 
+            charCodeAt()
+                --获取指定指定位置字符的编码（Unicode编码）
+           */
+           result = str.charCodeAt(0);
+           console.log(result);//H的unicode编码是72
+
+           /* 
+                String.fromCharCode() 
+                    --可以根据字符编码去获取数组      
+            */
+            result = String.fromCharCode(72);
+            console.log(result);//H
+
+            /* 
+                concat()
+                    --可以用来连接两个或多个字符串
+             */
+             result = str.concat("你好","再见");
+             console.log(result);
+
+            /* 
+                indexof()
+                    --该方法可以检索一个字符串中是否含有指定内容
+                    --如果字符串中含有该内容，则会返回第一次出现的索引
+                    --如果没有找到指定的内容，则返回-1
+                    --可以指定第二个参数，指定开始查找位置
+             */
+             result = str.indexOf("l");
+             console.log(result);//0(H在索引为2的位置)
+             result = str.indexOf("l",3);
+             console.log(result);//3
+
+             /* 
+                lastIndexOf()
+                    --该方法和indexOf()一样，不同的是这个方法从后往前找
+                    --该方法也可以指定第二个参数，指定查找位置
+                    --如果不存在，返回-1
+              */
+              result = str.lastIndexOf("l");
+              console.log(result);//3
+
+              /* 
+                slice()
+                    --可以从字符串中截取指定内容
+                    --不会改变原数组
+                    --参数
+                        第一个，开始位置的索引（包括开始）
+                        第二个，结束位置的索引（不包括结束位置）
+                    --如果省略第二参数，则会截取后边所有的
+                    --也可以传递负数作为参数，负数将会从后边计算
+               */
+              var res = str.slice(0,2);
+              console.log(res);
+
+            /* 
+                subString()
+                    --可以截取字符串，和slice类似
+                    --参数：
+                        第一个，开始位置索引（包括）
+                        第二个，结束位置索引（不包括）
+                        不同的是，subString(),不能接受负值作为参数，
+                        如果传递负值，则默认使用0
+                    --而且会自动调整，如果第一个参数小于第二个，则自动交换参数位置
+             */
+            res = str.substring(0,2);
+            console.log(res);
+
+            /* 
+                subStr()
+                    --也是截取字符串
+                    参数：
+                        第一个，开始位置索引
+                        第二个，截取数量
+             */
+             str = "abcdefg";
+             res = str.substr(3,2);
+             console.log(res);
+
+             /* 
+                split()
+                    --可以将一个字符串拆分为一个数组
+                    --参数
+                        -需要一个字符串为参数，将会根据字符串去拆分数组
+                    --如果传递一个空串作为参数，则会将每一个字符拆分为数组
+              */
+              str = "abc,bcd,efg,hij";
+              res = str.split(",");
+              console.log(res);//数组
+              res = str.split("");
+              console.log(res);
+
+              /* 
+                toUpperCase()
+                        --字符串转换为大写
+               */
+               str = "abcDEfg";
+               res = str.toUpperCase();
+               console.log(res);
+
+               /* 
+                toLowerCase()
+                        --字符串转换为小写
+                */
+                res = str.toLowerCase();
+                console.log(res);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
