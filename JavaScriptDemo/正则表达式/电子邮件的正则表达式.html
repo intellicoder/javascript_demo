@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邮件的正则表达式</title>
+    <script>
+
+        /* 
+            电子邮件
+                hello @abc.com.cn
+            
+            任意字母数字字符串下划线  . 任意字母数字字符串 @  任意字母数字  .   任意字母，两到五位  .   任意字母，两到五位
+            \w{3,}  (\.\w+)*    @   [A-z0-9]+   （\.[A-z]{2,5}）{1，2}   
+
+         */
+         var email = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+         console.log(email.test("3300945918@qq.com"));//true
+         console.log(email.test("zhuzhxihxi.com"));//false
+         console.log(email.test("3300945918@qq.com.3445"));//false
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <script>
+        /* 
+        创建一个正则表达式检查一个字符串是否含有aaa
+         */
+         var reg =/aaa/;
+         console.log(reg.test("aaabc"));//true
+
+         /* 
+            量词
+                --通过量词可以设置一个内容出现的次数
+                --量词只对他前一个内容起作用
+                --{n}正好出现n次
+                --{m,n}出现m-n次
+                --{m,}至少出现m次
+                -- + 表示至少一个，相当于{1,}
+                -- * 表示0个或多个
+                -- ? 表示0个或一个
+          */
+          reg = /a{3}/;
+          console.log(reg.test("aaabc"));//true
+          reg = /ab{3}/;
+          console.log(reg.test("ababab"));//false,只对一个字母起作用
+          reg = /(ab){3}/;
+          console.log(reg.test("ababab"));//true,要加括号
+          //出现1到3次
+          reg = /ab{1,3}c/;
+          console.log(reg.test("abbc"));//true
+          reg = /a{3,}/;
+          console.log(reg.test("aaa"));//true
+          reg = /ab+c/;
+          console.log(reg.test("abc"));//true 
+          reg = /ab*c/;
+          console.log(reg.test("ac"));//true
+          reg = /ab?c/;
+          console.log(reg.test("abbc"));//false
+
+          /* 
+            检查一个字符串是否以a开头
+                ^表示开头
+                $表示结尾
+            如果在正则表达式中同时使用^$,则要求字符串必须完全符合正则表达式
+           */
+           reg = /^a/;//匹配开头的a
+           console.log(reg.test("abc"));//true
+           console.log(reg.test("bc"));//false
+           reg = /a$/;//匹配结尾的a
+           console.log(reg.test("ba"));//true
+           reg = /^a$/;//a即使开头也在结尾，只能有一个a
+           console.log(reg.test("a"));//true
+           reg = /^a|a$/;//开头是字母a，结尾也是字母a，注意和上面的区别
+           console.log(reg.test("aaabca"));//true
+
+           /* 
+                创建一个正则表达式，用来检查一个字符串是否是一个手机号
+
+                手机号规则，
+                13567890123 （11位）
+                第一位，以1开头
+                第二位，不能是012，是3-9任意数字
+                三位以后的数字个数9个
+                ^1      [3-9]   [0-9]{3}$
+            */
+            var phoneStr = "13567890123";
+            var phonerReg = /^1[3-9][0-9]{9}$/;
+            console.log(phonerReg.test(phoneStr));//true
+            console.log(phonerReg.test("13338870496"));//true
+            console.log(phonerReg.test("11022838388"));//false
+
+
+
+
+          
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
