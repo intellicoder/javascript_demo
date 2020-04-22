@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档的加载</title>
+    <script>
+        /* 
+            onload标签会在整个页面加载完成后才触发
+         */
+         //为window绑定一个onload事件
+         //该事件对应的响应函数，将在页面加载完成后执行
+         //这样就可以确保代码执行时所有的DOM对象都已加载完毕了
+        window.onload = function(){
+            var btn2 = document.getElementById("btn2");
+            btn2.onclick = function(){
+                alert("当页面加载完毕，才触发");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <button id="btn2">如何在开头写JS，并且最后加载</button>
+
+    <script>
+        /* 
+            浏览器加载页面的顺序是自上向下的，读取到一行就运行一行
+            所以此时的脚本不能放到head标签中
+            如果将js标签写到head标签时，在代码执行时，页面还未加载
+         */
+
+        //获取id为btn的按钮
+        var btn = document.getElementById("btn");
+        //为按钮绑定单机响应函数
+        btn.onclick = function(){
+            alert("hello");
+        }
+    </script>
+</body>
+</html>
